@@ -1,0 +1,8 @@
+<h1>Admin::Shops#index</h1>
+<p>Find me in app/views/admin/shops/index.html.erb</p>
+
+<% @shops.each do |shop| %>
+<%= link_to shop.name, admin_shop_path(shop) %>
+<%= shop.phone_number %>
+<%= shop.address %>
+<% end %>

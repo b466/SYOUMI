@@ -1,0 +1,8 @@
+
+<%= attachment_image_tag @pshop, :image, :size =>'150x120', fallback: "no_image.jpg" %>
+<%= @shop.name %>
+<%= @shop.explanatory %>
+<%= @shop.shop_url %>
+<%= @shop.phone_number %>
+<%= @shop.address %>
+<%= link_to '編集する', edit_admin_shop_path(@shop) %>
