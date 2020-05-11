@@ -4,8 +4,18 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field">
-    <%= f.label :name %><br />
-    <%= f.name_field :name, autofocus: true, autocomplete: "name" %>
+    <%= f.label :姓 %><br />
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+  </div>
+
+      <div class="field">
+    <%= f.label :名 %><br />
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+  </div>
+
+    <div class="field">
+    <%= f.label :電話番号 %><br />
+    <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %>
   </div>
 
   <div class="field">
@@ -13,8 +23,7 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="field">^@[
-    ]
+  <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>

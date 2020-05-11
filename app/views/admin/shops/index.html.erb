@@ -2,6 +2,8 @@
 <p>Find me in app/views/admin/shops/index.html.erb</p>
 
 <% @shops.each do |shop| %>
+<%= attachment_image_tag shop, :image, :size =>'150x120', fallback: "no_image.jpg" %><br>
+
 <%= link_to shop.name, admin_shop_path(shop) %>
 <%= shop.phone_number %>
 <%= shop.address %>

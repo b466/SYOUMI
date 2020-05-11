@@ -12,11 +12,13 @@
   <body>
     <header>
       
-  <nav>
+  <div class="navbar-text navbar-right">
     <ul>
       <% if member_signed_in? %>
+            <ul class="list-inline">
         <li>ユーザー</li>
         <li><%= link_to "ログアウト", destroy_member_session_path, method: :delete %></li>
+      </ul>
       <% elsif admin_signed_in? %>
         <li>管理者</li>
         <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
@@ -26,7 +28,7 @@
         <li><%= link_to "ログイン", new_member_session_path %></li>
       <% end %>
     </ul>
-  </nav>
+  </div>
 </header>
     <%= yield %>
   </body>
