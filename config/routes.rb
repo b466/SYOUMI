@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'shops/index'
+  get 'shops/show'
   root 'homes#top'
 
   devise_for :admins, controllers: {
@@ -22,6 +24,7 @@ Rails.application.routes.draw do
  
   resources :members, only: [:show, :edit, :update]
   resources :products, only: [:index, :show]
+  resources :shops, only: [:index, :show]
   resources :cart_items, only: [:new, :create, :index, :edit, :update, :destroy]
   resources :orders, only: [:new, :create, :index, :show]
   resources :order_products, only: [:index, :show]

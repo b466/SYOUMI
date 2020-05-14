@@ -1,2 +1,12 @@
-<h1>Admin::Products#show</h1>
-<p>Find me in app/views/admin/products/show.html.erb</p>
+<h3>商品詳細</h3>
+
+<%= attachment_image_tag @product, :image, :size =>'150x150', fallback: "no_image.jpg" %>
+
+<P><%= @product.name %></P>
+
+<p>商品説明
+	<%= @product.explanatory %></p>
+
+	<P><%= @product.price %>円</P>
+
+<%= link_to '編集する', edit_admin_product_path(@product) %>
