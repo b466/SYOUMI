@@ -1,10 +1,34 @@
-      <h3>店舗一覧</h3>
-      <% @shops.each do |shop| %>
-      <div class="product-items clearfix">
-                <p><%= link_to shop_path(shop) do %>
-                <%= attachment_image_tag shop, :image, :size =>'300x300', fallback: "no_image.jpg" %></p>
+      <h2>店舗一覧</h2>
+
+      <section class="section">
+        <div class="container">
+          <div class="columns is-multiline">
+            <% @shops.each do |shop| %>
+              <div class="column is-3">
+                <div class="card">
+                  <div class="card-content">
+                    <div class="card-image">
+                      <figure class="image">
+                        <%= link_to shop_path(shop) do %>
+                        <%= attachment_image_tag shop, :image, :size =>'300x300', fallback: "no_image.jpg" %>
+                        <% end %>
+                      </figure>
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <div class="media">
+                      <div class="media-content">
+                        <div class="title"><%= shop.name %></div>
+                      </div>
+                    </div>
+                    <div class="content">
+                      <%= shop.products.name %>
+                    </div>
+                  </div>
+                </div>
+              </div>
                 <% end %>
-                <p><%= shop.name %></p>
-                <%= shop.products.name %>
-                <% end %>
-		</div>		
+              
+            </div>
+          </div>
+        </section>		

@@ -27,6 +27,12 @@ class Admin::ShopsController < ApplicationController
   	redirect_to admin_shops_path(shop)
   end
 
+  def destroy
+    shop = Shop.find(params[:id])
+    shop.destroy
+    redirect_to shops_path
+  end
+
   private
   def shop_params
   	params.require(:shop).permit(:name, :image, :explanatory, :shop_url, :phone_number, :address)

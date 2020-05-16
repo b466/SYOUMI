@@ -69,6 +69,9 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 gem 'ransack'
 gem 'bulma-rails'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'fullcalendar-rails'
+
 
 gem 'dotenv-rails'
 group :production do

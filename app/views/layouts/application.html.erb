@@ -1,36 +1,60 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>SYOUMI</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>SYOUMI</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-  <body>
-    <header>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <header>
+    
+    <div class="navbar is-danger ">
+      <div class="navbar-brand">
+        <h1 class="title is-4" style="font-family: cursive;">SYOUMI</h1>
+        <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <ul>
+        <% if member_signed_in? %>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="field is-grouped">
+              
+              <li>ユーザー</li>
+              <li><%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: "button is-warning is-light" %></li>
+            </ul>
+            <% elsif admin_signed_in? %>
+            <li>管理者</li>
+            <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "button is-warning is-light" %></li>
+          </div>
+        </div>
+      </div>
       
-  <div class="navbar-text navbar-right">
-    <ul>
-      <% if member_signed_in? %>
-            <ul class="list-inline">
-        <li>ユーザー</li>
-        <li><%= link_to "ログアウト", destroy_member_session_path, method: :delete %></li>
-      </ul>
-      <% elsif admin_signed_in? %>
-        <li>管理者</li>
-        <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
       <% else %>
-        <li>ゲストユーザー</li>
-        <li><%= link_to "新規登録", new_member_registration_path %></li>
-        <li><%= link_to "ログイン", new_member_session_path %></li>
+      <li>ゲストユーザー</li>
+      <%= link_to "新規登録", new_member_registration_path, class: "button is-warning is-light" %>
+      <%= link_to "ログイン", new_member_session_path, class: "button is-warning is-light" %>
       <% end %>
-    </ul>
-  </div>
-</header>
-    <%= yield %>
-  </body>
+      
+    </div>
+  </header>
+  <%= yield %>
+  <footer>
+    　　<ul class="footer-menu">
+     <li>ホーム ｜</li>
+     <li>このサイトについて ｜</li>
+     <li>サービス ｜</li>
+     <li>お問い合わせ</li>
+   </ul>
+   <p>© All rights reserved by syoumi.</p>
+ </footer>
+</body>
 </html>
