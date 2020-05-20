@@ -71,7 +71,9 @@ gem 'ransack'
 gem 'bulma-rails'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'fullcalendar-rails'
-
+gem 'pry-byebug'
+gem 'payjp'
+gem 'dotenv-rails'
 
 gem 'dotenv-rails'
 group :production do

@@ -1,0 +1,36 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>単価(税込)</th>
+      <th>数量</th>
+      <th>小計</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <%= @product.name %>
+      </td>
+      <td>
+        <% taxed_price = @product.price * 1.1 %>
+        <%= taxed_price.round.to_s(:delimited) %>
+      </td>
+      <td><%= @quantity %></td>
+      <td>
+        <% taxed_total_price = taxed_price * @quantity %>
+        <%= taxed_total_price.round.to_s(:delimited) %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<%= form_with local: true, url: pay_path do |form| %>
+金額：<%= form.text_field :amount %>
+  <script
+    type="text/javascript"
+    src="https://checkout.pay.jp"
+    class="payjp-button"
+    data-key="<%= ENV["PAYJP_PUBLIC_KEY"] %>">
+  </script>
+<% end %>

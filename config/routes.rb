@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get 'shops/index'
-  get 'shops/show'
-  root 'homes#top'
 
+  root 'shops#index'
+  post 'confirm' => 'orders#confirm'
+  post "pay" => "orders#pay"
   devise_for :admins, controllers: {
   sessions:      'admins/sessions',
   passwords:     'admins/passwords',
@@ -23,8 +23,10 @@ Rails.application.routes.draw do
   end
  
   resources :members, only: [:show, :edit, :update]
+ 
+  resources :shops, only: [:index, :show] do
   resources :products, only: [:index, :show]
-  resources :shops, only: [:index, :show]
+  end  
   resources :cart_items, only: [:new, :create, :index, :edit, :update, :destroy]
   resources :orders, only: [:new, :create, :index, :show]
   resources :order_products, only: [:index, :show]

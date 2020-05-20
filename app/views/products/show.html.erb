@@ -6,8 +6,8 @@
 			<% taxed_price = @product.price.to_i * 1.1 %>
 			<p>¥<%= taxed_price.round %>(税込)</p>
      
-        <%= form_with model: @cart_item, url: cart_items_path, local: true do |f| %>
-          <%= hidden_field_tag :product_id, @product.id %>
+        <%= form_with model: @order, url: confirm_path, local: true do |f| %>
+          <%= f.hidden_field :product_id, :value => @product.id %>
           <%= f.select :time, [['18:00', 1], ['19:00', 2], ['20:00', 3], ['21:00', 4], ['22:00', 5]], { include_blank: "時間" } %>
           <%= f.select :quantity, [['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]], { include_blank: "個数" } %>
           <%= f.submit "入れる", class: "btn btn-primary" %>

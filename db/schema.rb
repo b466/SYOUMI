@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_12_073204) do
+ActiveRecord::Schema.define(version: 2020_05_16_122101) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -74,9 +74,10 @@ ActiveRecord::Schema.define(version: 2020_05_12_073204) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "member_id"
     t.string "pay_type"
     t.integer "total_price"
+    t.integer "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -90,6 +91,8 @@ ActiveRecord::Schema.define(version: 2020_05_12_073204) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "genre_id"
+    t.integer "shop_id"
+    t.index ["shop_id"], name: "index_products_on_shop_id"
   end
 
   create_table "shops", force: :cascade do |t|
@@ -102,6 +105,8 @@ ActiveRecord::Schema.define(version: 2020_05_12_073204) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "genre_id"
+    t.integer "member_id"
+    t.index ["member_id"], name: "index_shops_on_member_id"
   end
 
 end
