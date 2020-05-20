@@ -4,7 +4,7 @@ class Admin::ProductsController < ApplicationController
   end
 
   def create
-    shop = Shop.find(params[:shop_id])
+    # shop = Shop.find(params[:shop_id])
   	product = Product.new(product_params)
     # admins_userで取れないかも？
     product.shop_id = shop.id

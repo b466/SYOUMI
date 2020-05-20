@@ -1,0 +1,20 @@
+
+
+<h4>店舗新規登録</h4>
+ <%= form_with model: @shop, url: shops_path do |f| %>
+ 	<%= f.attachment_field :image %>
+ 	<div><%= f.label :ジャンル %>
+		<%= text_field :genre_id, class: "form-control"   %>
+	</div>
+ 	<h5>店舗名</h5>
+ 	<%= f.text_field :name %>
+ 	<h5>店舗説明</h5>
+ 	<%= f.text_area :explanatory %>
+ 	<h5>URL</h5>
+ 	<%= f.text_field :shop_url %>
+ 	<h5>電話番号</h5>
+ 	<%= f.text_field :phone_number %>
+ 	<h5>住所</h5>
+ 	<%= f.text_field :address %>
+ 	<%= f.submit '新規登録' %>
+<% end %>
