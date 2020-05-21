@@ -31,6 +31,8 @@
               
               <li>ユーザー</li>
               <li><%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: "button is-warning is-light" %></li>
+              <li><%= link_to "店舗一覧", shops_path, class: "button is-warning is-light" %></li>
+                    <li><%= link_to 'マイページ', member_path(current_member.id), class: "button is-warning is-light" %></li>
             </ul>
             <% elsif admin_signed_in? %>
             <li>管理者</li>
@@ -41,6 +43,8 @@
       
       <% else %>
       <li>ゲストユーザー</li>
+      <%= link_to 'マイページ', member_path(current_member.id), class: "button is-warning is-light" %>
+      <%= link_to "店舗一覧", shops_path, class: "button is-warning is-light" %>
       <%= link_to "新規登録", new_member_registration_path, class: "button is-warning is-light" %>
       <%= link_to "ログイン", new_member_session_path, class: "button is-warning is-light" %>
       <% end %>

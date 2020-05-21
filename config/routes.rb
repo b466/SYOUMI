@@ -3,6 +3,14 @@ Rails.application.routes.draw do
   root 'shops#index'
   post 'confirm' => 'orders#confirm'
   post "pay" => "orders#pay"
+  get 'inquiry' => 'inquiry#index'              # 入力画面
+  post 'inquiry/confirm' => 'inquiry#confirm'   # 確認画面
+  post 'inquiry/thanks' => 'inquiry#thanks'     # 送信完了画面
+  post 'favorite/:id' => 'favorites#create', as: 'create_favorite'
+  delete 'favorite/:id' => 'favorites#destroy', as: 'destroy_favorite'
+
+
+
   devise_for :admins, controllers: {
   sessions:      'admins/sessions',
   passwords:     'admins/passwords',
@@ -22,12 +30,11 @@ Rails.application.routes.draw do
     resources :products 
   end
  
-  resources :members, only: [:show, :edit, :update]
- 
+  resources :members, only: [:show, :edit, :update] 
+
   resources :shops do
   resources :products
   end  
-  resources :cart_items, only: [:new, :create, :index, :edit, :update, :destroy]
   resources :orders, only: [:new, :create, :index, :show]
   resources :order_products, only: [:index, :show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

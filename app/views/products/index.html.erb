@@ -1,11 +1,12 @@
       <%= params[:shop_id]%>
       <h3>商品一覧</h3>
       <% @products.each do |product| %>
-			      
-                <p><%= link_to shop_product_path(params[:shop_id], product.id) do %>
-                <%= attachment_image_tag product, :image, :size =>'150x120', fallback: "no_image.jpg" %>
-                <% end %><p> 
-                <p><%= product.name %></p>
-                <p><%= number_to_currency(product.price, :format => "%u%n", :unit => "￥") %></p>
-      </div>
-      <% end %>
+
+      <p><%= link_to shop_product_path(params[:shop_id], product.id) do %>
+        <%= attachment_image_tag product, :image, :size =>'150x120', fallback: "no_image.jpg" %>
+        <% end %><p> 
+          <p><%= product.name %></p>
+          <p><%= number_to_currency(product.price, :format => "%u%n", :unit => "￥") %></p>
+          <%= link_to "削除", shop_products_path(product), method: :delete, data: { confirm: '本当に削除しますか?' }, class: "pull-denger", class: "btn btn-danger btn-xs" %>
+        </div>
+        <% end %>
