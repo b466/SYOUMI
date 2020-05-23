@@ -1,2 +1,53 @@
-<h1>Members#edit</h1>
-<p>Find me in app/views/members/edit.html.erb</p>
+<section class="section">
+	<div class="container">
+		<div class="columns is-centered">
+			<div class="column is-6">
+
+				<%= form_for @member do |f| %>
+				<div class="field">
+					<%= f.label :姓 %>
+					<P class="control has-icons-left">
+						<%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", :placeholder => "first_name", class: "input" %>
+						<span class="icon is-small is-left">
+							<i class="fas fa-user"></i>
+						</span>
+					</P>
+				</div>
+
+				<div class="field">
+					<%= f.label :名 %>
+					<P class="control has-icons-left">
+						<%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", :placeholder => "last_name", class: "input" %>
+						<span class="icon is-small is-left">
+							<i class="fas fa-user"></i>
+						</span>
+					</P>
+				</div>
+
+				
+				<div class="field">
+					<%= f.label :電話番号 %>
+					<P class="control has-icons-left">
+						<%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", :placeholder => "phone_number", class: "input" %>
+						<span class="icon is-small is-left">
+							<i class="fas fa-phone-square-alt"></i>
+						</span>
+					</P>
+				</div>
+
+				<div class="field">
+					<%= f.label :email %>
+					<p class="control has-icons-left">
+						<%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "email", class: "input" %>
+						<span class="icon is-small is-left">
+							<i class="fas fa-envelope"></i>
+						</span>
+					</p>
+				</div>
+
+				<%= f.submit "更新", class: "button is-success" %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</section>

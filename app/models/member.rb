@@ -7,6 +7,6 @@ class Member < ApplicationRecord
   has_many :shops, dependent: :destroy
   has_many :favorites
   	def favorited_by?(shop)
-  		Favorite.where(shop_id: shop).exists?
+  		favorites.where(shop_id: shop.id).exists?
 	end
 end

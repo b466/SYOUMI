@@ -23,5 +23,5 @@ class InquiriesController < ApplicationController
     # 完了画面を表示
     render :action => 'thanks'
   end
-  end
+
 end

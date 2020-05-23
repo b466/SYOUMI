@@ -1,7 +1,7 @@
 
 <h4>店舗編集</h4>
 
-<%= form_with model: @shop, url: admin_shop_path(@shop), local: true do |f| %>
+<%= form_with model: @shop, url: shop_path(@shop), local: true do |f| %>
 
 <div><%= f.label :店舗画像 %>
 	<%= f.attachment_field :image %>

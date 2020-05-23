@@ -1,0 +1,3 @@
+<% @favorites.each  do |favorite| %>
+  <%= attachment_image_tag favorite.shop, :image, :size =>'300x300', fallback: "no_image.jpg" %>
+<% end  %>

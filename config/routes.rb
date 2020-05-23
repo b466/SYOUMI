@@ -3,11 +3,13 @@ Rails.application.routes.draw do
   root 'shops#index'
   post 'confirm' => 'orders#confirm'
   post "pay" => "orders#pay"
-  get 'inquiry' => 'inquiry#index'              # 入力画面
-  post 'inquiry/confirm' => 'inquiry#confirm'   # 確認画面
-  post 'inquiry/thanks' => 'inquiry#thanks'     # 送信完了画面
+  get 'inquiry' => 'inquiries#index'              # 入力画面
+  post 'inquiry/confirm' => 'inquiries#confirm'   # 確認画面
+  post 'inquiry/thanks' => 'inquiries#thanks'     # 送信完了画面
   post 'favorite/:id' => 'favorites#create', as: 'create_favorite'
   delete 'favorite/:id' => 'favorites#destroy', as: 'destroy_favorite'
+  get 'favorites' => 'favorites#index'
+
 
 
 
@@ -30,7 +32,7 @@ Rails.application.routes.draw do
     resources :products 
   end
  
-  resources :members, only: [:show, :edit, :update] 
+  resources :members, only: [:show, :edit, :update, :index] 
 
   resources :shops do
   resources :products
