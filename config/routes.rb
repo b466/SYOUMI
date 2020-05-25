@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   end
  
   resources :members, only: [:show, :edit, :update, :index] 
-
+  resources :genres, only: [:new, :create, :index, :edit, :update, :destroy]
   resources :shops do
   resources :products
   end  

@@ -1,8 +1,8 @@
 class ShopsController < ApplicationController
     before_action :authenticate_member!
 
-    def new
-  	@shop = Shop.new
+  def new
+  	 @shop = Shop.new
   end
 
   def create
@@ -14,14 +14,16 @@ class ShopsController < ApplicationController
   end
 
   def index
-  	@shops = Shop.all
+  	# @shops = Shop.all
+    @q = Shop.ransack(params[:q])
+    @shops = @q.result(distinct: true)
   end
 
   def show
   	@shop = Shop.find(params[:id])
   end
 
-    def edit
+  def edit
   	@shop = Shop.find(params[:id])
   end
 

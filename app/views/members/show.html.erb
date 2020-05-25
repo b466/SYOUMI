@@ -32,7 +32,7 @@
 						</p>
 						<div class="panel-block">
 							<p class="control">
-								
+								<%= link_to "店舗編集", edit_shop_path%>
 
 							</p>
 							<article class="panel is-link">
@@ -53,6 +53,7 @@
 <%= attachment_image_tag shop, :image, :size =>'300x300', fallback: "no_image.jpg" %>
 <div class="title"><%= shop.name %></div>
 <%= link_to "料理を登録", new_shop_product_path(shop) %>
+<%= link_to "店舗編集", edit_shop_path%>
 <% end %>
 
 
