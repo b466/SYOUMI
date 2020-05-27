@@ -6,9 +6,10 @@
         <%= attachment_image_tag product, :image, :size =>'150x120', fallback: "no_image.jpg" %>
         <% end %><p> 
           <p><%= product.name %></p>
-          <p><%= number_to_currency(product.price, :format => "%u%n", :unit => "￥") %></p>
-          <% if product.member.id == current_member.id %>
-          <%= link_to "削除", shop_products_path(product), method: :delete, data: { confirm: '本当に削除しますか?' }, class: "pull-denger", class: "btn btn-danger btn-xs" %>
+          <% taxed_price = product.price.to_i * 1.1 %>
+      <p>¥<%= taxed_price.round %>(税込)</p>
+          <% if product.shop.member_id == current_member.id %>
+          <%= link_to "削除", shop_product_path(product.shop, product), method: :delete, data: { confirm: '本当に削除しますか?' }, class: "pull-denger", class: "btn btn-danger btn-xs" %>
           <% end %>
         </div>
         <% end %>

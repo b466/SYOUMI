@@ -5,7 +5,7 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
   <!-- %script{src: "https://js.pay.jp/", type: "text/javascript"} -->
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css" type="text/css" media="all" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -13,7 +13,7 @@
 
 <body>
   <header>
-    
+
     <div class="navbar is-danger ">
       <div class="navbar-brand">
         <h1 class="title is-4" style="font-family: cursive;">SYOUMI</h1>
@@ -28,13 +28,15 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="field is-grouped">
-              
-                    <li><div class="welcome-text">
-        ようこそ <%= current_member.first_name + current_member.last_name %> さん 
-      </div></li>
-              <li><%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: "button is-warning is-outlined" %></li>
-              <li><%= link_to "店舗一覧", shops_path, class: "button is-warning is-outlined" %></li>
-              <li><%= link_to 'マイページ', member_path(current_member.id), class: "button is-warning is-light" %></li>
+
+              <li><div class="welcome-text">
+                ようこそ <%= current_member.first_name + current_member.last_name %> さん 
+              </div></li>
+
+              <li><%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: "fas fa-sign-out-alt faa-wrench animated button is-warning is-outlined" %></li>
+              <li><%= link_to "店舗一覧", shops_path, class: "fas fa-store-alt faa-bounce animated button is-warning is-outlined" %></li>
+              <li><%= link_to 'マイページ', member_path(current_member.id), class: "fas fa-male faa-tada animated animated button is-warning is-outlined" %></li>
+              <li><%= link_to "お問い合わせ", inquiry_path, class: "fas fa-id-card faa-vertical animated button is-warning is-outlined" %></li>
             </ul>
             <% elsif admin_signed_in? %>
             <li>管理者</li>
@@ -42,9 +44,9 @@
           </div>
         </div>
       </div>
+
       
       <% else %>
-      <li>ゲストユーザー</li>
 
       <%= link_to "店舗一覧", shops_path, class: "button is-warning is-light" %>
       <%= link_to "新規登録", new_member_registration_path, class: "button is-warning is-light" %>
@@ -59,7 +61,6 @@
   <%= yield %>
   <footer>
     　　<ul class="footer-menu">
-     <li>ホーム ｜</li>
      <li>このサイトについて ｜</li>
      <li>サービス ｜</li>
      <li>お問い合わせ</li>
