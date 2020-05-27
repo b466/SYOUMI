@@ -37,6 +37,7 @@
               <li><%= link_to "店舗一覧", shops_path, class: "fas fa-store-alt faa-bounce animated button is-warning is-outlined" %></li>
               <li><%= link_to 'マイページ', member_path(current_member.id), class: "fas fa-male faa-tada animated animated button is-warning is-outlined" %></li>
               <li><%= link_to "お問い合わせ", inquiry_path, class: "fas fa-id-card faa-vertical animated button is-warning is-outlined" %></li>
+                <li><%= link_to "about", inquiry_path, class: "fas fa-crown faa-spin animated button is-warning is-outlined" %></li>
             </ul>
             <% elsif admin_signed_in? %>
             <li>管理者</li>
@@ -61,9 +62,7 @@
   <%= yield %>
   <footer>
     　　<ul class="footer-menu">
-     <li>このサイトについて ｜</li>
      <li>サービス ｜</li>
-     <li>お問い合わせ</li>
    </ul>
    <p>© All rights reserved by syoumi.</p>
  </footer>
