@@ -1,9 +1,12 @@
 class InquiryMailer < ApplicationMailer
- default from: "example@example.com"   # 送信元アドレス
-  default to: "example@example.com"     # 送信先アドレス
- 
-  def received_email(inquiry)
+# -----追記------
+  def send_mail(inquiry)
     @inquiry = inquiry
-    mail(:subject => 'お問い合わせを承りました')
+    mail(
+      from: 'system@example.com',
+      to:   'cavaliers1394@gmail.com',
+      subject: 'お問い合わせ通知'
+    )
   end
+# -----追記ここまで----
 end
