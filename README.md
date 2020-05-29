@@ -1,24 +1,24 @@
-# README
+# <アプリ名>
+syoumi
+## サイト概要
+お店で余ってしまった料理や賞味期限の関係で廃棄しなければならない商品を定価より安い値段で提供し廃棄物削減と売り上げに繋がる。ユーザーも美味しい食事がお得に楽しめる。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### サイトテーマ
+食糧廃棄を減らし美味しく食事をする。
 
-Things you may want to cover:
+### テーマを選んだ理由
+学生の頃ファミリーレストランでアルバイトをしていた時に余った食材を廃棄していたから
 
-* Ruby version
+### ターゲットユーザ
+美味しい料理を安く食べたい人
+新しいお店発見したい
 
-* System dependencies
+### 主な利用シーン
+廃棄になりそうな料理がある時
 
-* Configuration
+## 設計書
 
-* Database creation
+### 機能一覧
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+https://docs.google.com/spreadsheets/d/1B4luINwB_kUX7odG4ovOBvi4VW51oiPlU5dQsH2mNCE/edit#gid=0
