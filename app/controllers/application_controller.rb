@@ -4,11 +4,21 @@ class ApplicationController < ActionController::Base
 	private
 
   def after_sign_in_path_for(resource)
-    shops_path
+    case resource
+    when Admin
+      admin_shops_path
+    when Member
+      shops_path
+    end
   end
 
   def after_sign_up_path_for(resource)
-    shops_path
+    case resource
+    when :admin
+      new_admin_session_path
+    when :member
+      shops_path
+    end
   end
 
 	def configure_permitted_parameters

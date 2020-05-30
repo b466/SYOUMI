@@ -7,7 +7,7 @@
         <% end %><p> 
           <p><%= product.name %></p>
           <% taxed_price = product.price.to_i * 1.1 %>
-      <p>¥<%= taxed_price.round %>(税込)</p>
+          <p>¥<%= taxed_price.round %>(税込)</p>
           <% if product.shop.member_id == current_member.id %>
           <%= link_to "削除", shop_product_path(product.shop, product), method: :delete, data: { confirm: '本当に削除しますか?' }, class: "pull-denger", class: "btn btn-danger btn-xs" %>
           <% end %>

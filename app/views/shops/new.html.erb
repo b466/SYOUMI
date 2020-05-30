@@ -9,21 +9,50 @@
   </div>
 <% end %>
 
-<h4>店舗新規登録</h4>
- <%= form_with model: @shop, url: shops_path do |f| %>
- 	<%= f.attachment_field :image %>
- 	<div><%= f.label :ジャンル %>
-		<%= text_field :genre_id, class: "form-control"   %>
-	</div>
- 	<h5>店舗名</h5>
- 	<%= f.text_field :name %>
- 	<h5>店舗説明</h5>
- 	<%= f.text_area :explanatory %>
- 	<h5>URL</h5>
- 	<%= f.text_field :shop_url %>
- 	<h5>電話番号</h5>
- 	<%= f.text_field :phone_number %>
- 	<h5>住所</h5>
- 	<%= f.text_field :address %>
- 	<%= f.submit '新規登録' %>
-<% end %>
+
+
+<div class="row">
+  <div class="col-xs-1"></div>
+  <div class="col-xs-10">
+    <h1>店舗新規登録</h1>
+
+    <%= form_with model: @shop, url:  shops_path, local: true do |f| %>
+    <div>
+      <%= f.label :店舗画像 %>
+   <%= f.attachment_field :image %>
+    </div>
+
+    <div>
+      <%= f.label :店舗名%>
+      <%= f.text_field :name, class: "form-control"  %>
+    </div>
+
+
+    <div>
+      <%= f.label :店舗説明 %>
+      <%= f.text_area :explanatory, class: "form-control"  %>
+    </div>
+
+        <div>
+      <%= f.label :URL %>
+      <%= f.text_field :shop_url, class: "form-control"  %>
+    </div>
+
+    <div>
+      <%= f.label :電話番号 %><br>
+      <%= f.text_field :phone_number, class: "form-control"  %>
+    </div>
+
+        <div>
+      <%= f.label :住所 %><br>
+      <%= f.text_field :address, class: "form-control"  %>
+    </div>
+
+    <div>
+      <%= f.submit "新規登録", class: "btn btn-primary" %>
+    </div>
+
+    <% end %>
+  </div>
+  <div class="col-xs-1"></div>
+</div>

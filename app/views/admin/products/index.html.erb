@@ -1,8 +1,29 @@
 
+<div class="row">
+  <div class="col-xs-1"></div>
+  <div class="col-xs-10">
+    <h3 class="admin-products-title">商品一覧画面</h3>
 
-<% @products.each do |product| %>
-		<%= product.id %>
-		<%= link_to product.name, admin_product_path(product) %>
-		<%= product.price %>
-
-		<% end %>
+    <table class="table table-hover admin-products-table">
+      <thead>
+        <tr class="success">
+          <th>商品ID</th>
+          <th>商品名</th>
+          <th>価格</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @products.each do |product| %>
+        <tr>
+          <td><%= product.id %></td>
+          <td><%= link_to product.name, admin_product_path(product) %></td>
+          <td><%= product.price.to_s(:delimited) %></td>
+          <td><%= link_to "編集", edit_admin_product_path(product), class: "btn-primary animated button fadeIn infinite" %></td>
+          <td><%= link_to "削除", admin_product_path(product), method: :delete, data: { confirm: '本当に削除しますか?' }, class: "pull-denger", class: "btn btn-danger" %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-xs-1"></div>
+</div>

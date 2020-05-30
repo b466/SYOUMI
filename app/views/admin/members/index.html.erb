@@ -1,2 +1,32 @@
-<h1>Admin::Members#index</h1>
-<p>Find me in app/views/admin/members/index.html.erb</p>
+<div class="row">
+	<div class="col-xs-1"></div>
+	<div class="col-xs-2">
+		<h3>会員一覧画面</h>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-3"></div>
+		<div class="col-xs-6">
+			<table class="table">
+				<thead>
+					<tr class="success">
+						<th>会員ID</th>
+						<th>氏名</th>
+						<th>メールアドレス</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @members.each do |member| %>
+					<tr>
+						<td><%= member.id %></td>
+						<td><%= link_to current_member.first_name + current_member.last_name, admin_member_path(member.id) %></td>
+						<td><%= member.email %></td>
+						<td><%= link_to "編集", edit_admin_member_path(member), class: "btn-primary animated button fadeIn infinite" %></td>
+						<td><%= link_to "削除", admin_member_path(member), method: :delete, data: { confirm: '本当に削除しますか?' }, class: "pull-denger", class: "btn btn-danger" %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-xs-3"></div>
+	</div>
