@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'shops#index'
+  root 'homes#top'
   post 'confirm' => 'orders#confirm'
   post "pay" => "orders#pay"
   get 'inquiry' => 'inquiries#index'              # 入力画面

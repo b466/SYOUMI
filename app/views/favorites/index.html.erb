@@ -1,3 +1,48 @@
-<% @favorites.each  do |favorite| %>
-  <%= attachment_image_tag favorite.shop, :image, :size =>'300x300', fallback: "no_image.jpg" %>
-<% end  %>
+
+
+
+
+      <section class="section">
+        <div class="container">
+          <div class="columns is-multiline">
+            <% @favorites.each  do |favorite| %>
+            <div class="column is-3">
+              <div class="card">
+                <div class="card-content">
+                  <div class="card-image">
+                    <figure class="image">
+                      <%= link_to shop_path(favorite.shop) do %>
+              <%= attachment_image_tag favorite.shop, :image, :size =>'300x300', fallback: "no_image.jpg" %>
+                       <div class="genre"><%= favorite.shop.genre_id%></div>
+                      <% if current_member.favorited_by?(favorite.shop) %>
+                      <p><%= link_to destroy_favorite_path(favorite.shop), method: :DELETE do %></p>
+                      <i class="fas fa-heart" style="color:red"></i>
+                      <% end %>
+                      <% else %>
+                      <p><%= link_to create_favorite_path(favorite.shop), method: :POST do %></p>
+                      <i class="far fa-heart"></i>
+                      <% end %>
+                      <% end %>
+                      <% end %>
+                    </figure>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <div class="media">
+
+                    <div class="media-content">
+                      <div class="title"><%= favorite.shop.name %></div>
+                    </div>
+                  </div>
+                  <%= favorite.shop.genre_id%>
+                  <div class="content">
+                    <%= link_to '商品一覧画面', shop_products_path(favorite.shop) %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% end %>
+
+          </div>
+        </div>
+      </section>	

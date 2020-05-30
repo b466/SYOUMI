@@ -1,14 +1,14 @@
 
-<section class="section">
+<div class="columns">
 	<div class="container">
-		
-		<div class="column is-4">
+
+		<div class="column is-6">
 			<div class="card">
 				<div class="card-image">
-
-					<%= @member.first_name %>
-					<%= @member.last_name %>
-
+					<div class="card-content">
+						<%= @member.first_name %>
+						<%= @member.last_name %>
+					</div>
 
 					<div class="card-content">
 						<div class="media">
@@ -20,43 +20,36 @@
 							<%= @member.phone_number %>
 						</div>
 						<div class="content">
-							<%= link_to "編集", edit_member_path(@member) %>
+							<%= link_to "編集", edit_member_path(@member), class: "btn-primary animated button fadeIn infinite" %>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</section>
+
 
 <div class="container">
-	<div class="column is-3">
+	<div class="column is-4">
+		<p class="panel-block">
+			<%= link_to "店舗登録", new_shop_path %>
+		</p>
 		<article class="panel is-link">
 			<p class="panel-block">
-				<%= link_to "店舗登録", new_shop_path %>
+				<%= link_to "いいね一覧", favorites_path
+				%>
 			</p>
-			
-
-			<article class="panel is-link">
-				<p class="panel-block">
-					<%= link_to "いいね一覧", favorites_path
-					%>
-				</p>
-
-
-			</article>
-
-		</div>
+		</article>
 	</div>
 </div>
-
+</div>
 
 
 <% @shops.each do |shop| %>
 <%= attachment_image_tag shop, :image, :size =>'300x300', fallback: "no_image.jpg" %>
-<div class="title"><%= shop.name %></div>
-<%= link_to "料理を登録", new_shop_product_path(shop) %>
-<%= link_to "店舗編集", edit_shop_path%>
+	<div class="title"><%= shop.name %></div>
+	<%= link_to "料理を登録", new_shop_product_path(shop) %>
+	<%= link_to "店舗編集", edit_shop_path(shop) %>
 <% end %>
 
 

@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_member!
     def new
   	@product = Product.new
   end

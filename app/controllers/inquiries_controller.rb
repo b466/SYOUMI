@@ -1,4 +1,5 @@
 class InquiriesController < ApplicationController
+  before_action :authenticate_member!
   def index
   	@inquiry = Inquiry.new
     render :action => 'index'

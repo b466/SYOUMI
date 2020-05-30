@@ -1,4 +1,13 @@
-
+<% if @shop.errors.any? %>
+  <div class="notification is-danger">
+    <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this object from being saved: not successfully</h2>
+    <ul>
+      <% @shop.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
 <h4>店舗新規登録</h4>
  <%= form_with model: @shop, url: shops_path do |f| %>

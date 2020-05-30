@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  
 </head>
 
 <body>
@@ -37,32 +38,38 @@
               <li><%= link_to "店舗一覧", shops_path, class: "fas fa-store-alt faa-bounce animated button is-warning is-outlined" %></li>
               <li><%= link_to 'マイページ', member_path(current_member.id), class: "fas fa-male faa-tada animated animated button is-warning is-outlined" %></li>
               <li><%= link_to "お問い合わせ", inquiry_path, class: "fas fa-id-card faa-vertical animated button is-warning is-outlined" %></li>
-                <li><%= link_to "about", inquiry_path, class: "fas fa-crown faa-spin animated button is-warning is-outlined" %></li>
+              <li><%= link_to "ホーム", root_path, class: "fas fa-crown faa-spin animated button is-warning is-outlined" %></li>
             </ul>
             <% elsif admin_signed_in? %>
             <li>管理者</li>
-            <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "button is-warning is-light" %></li>
+            <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "fas fa-sign-out-alt faa-wrench animated button is-warning is-outlined" %></li>
           </div>
         </div>
       </div>
 
       
       <% else %>
-
-      <%= link_to "店舗一覧", shops_path, class: "button is-warning is-light" %>
-      <%= link_to "新規登録", new_member_registration_path, class: "button is-warning is-light" %>
-      <%= link_to "ログイン", new_member_session_path, class: "button is-warning is-light" %>
+      <div class="navbar-item">
+      <li><%= link_to "新規登録", new_member_registration_path, class: "fas fa-sign-out-alt faa-wrench animated button is-warning is-outlined" %></li>
+      <li><%= link_to "ログイン", new_member_session_path, class: "fas fa-crown faa-spin animated button is-warning is-outlined" %></li>
+    </div>
       <% end %>
+
       
     </div>
   </header>
   <% if flash[:notice] %>
   <p class="notice"><%= notice %></p>
   <% end %>
+  <% if flash[:alert] %>
+  <div class="notification is-danger">
+    <p class="alert"><%= alert %></p>
+  </div>
+  <% end %>
   <%= yield %>
   <footer>
     　　<ul class="footer-menu">
-     <li>サービス ｜</li>
+     <li>サービス</li>
    </ul>
    <p>© All rights reserved by syoumi.</p>
  </footer>

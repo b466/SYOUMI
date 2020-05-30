@@ -2,7 +2,7 @@
       <h3>商品一覧</h3>
       <% @products.each do |product| %>
 
-      <p><%= link_to shop_product_path(params[:shop_id], product.id) do %>
+      <p><%= link_to shop_product_path(params[:shop_id], product.id),data: {"turbolinks"=>false} do %>
         <%= attachment_image_tag product, :image, :size =>'150x120', fallback: "no_image.jpg" %>
         <% end %><p> 
           <p><%= product.name %></p>

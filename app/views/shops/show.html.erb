@@ -1,9 +1,38 @@
 
 <h2>店舗詳細</h2>
-<%= attachment_image_tag @shop, :image, :size =>'150x150', fallback: "no_image.jpg" %>
-<%= @shop.genre_id %>
- <p><%= @shop.name %></p>
-<%= @shop.explanatory %>
-<%= @shop.shop_url %>
-<%= @shop.phone_number %>
-<%= @shop.address %>
+<table class="table">
+	
+	<%= attachment_image_tag @shop, :image, :size =>'150x150', fallback: "no_image.jpg" %>
+
+	<%= @shop.genre_id %>
+	<tr>
+		<th>店名</th>
+		<td>
+			<%= @shop.name %>
+		</td>
+	</tr>
+	<tr>
+		<th>店舗説明</th>
+		<td>
+			<%= @shop.explanatory %>
+		</td>
+	</tr>
+	<tr>
+		<th>店舗URL</th>
+		<td>
+			<%= @shop.shop_url %>
+		</td>
+	</tr>
+	<tr>
+		<th>電話番号</th>
+		<td>
+			<%= @shop.phone_number %>
+		</td>
+	</tr>
+	<tr>
+		<th>住所</th>
+		<td>
+			<%= @shop.address %>
+		</td>
+	</tr>
+</table>

@@ -1,6 +1,8 @@
 class FavoritesController < ApplicationController
+	before_action :authenticate_member!
 
 	def index
+		@shop = Shop.all
 		@member = current_member
 		@favorites = Favorite.where(member_id: @member.id).all
 	end

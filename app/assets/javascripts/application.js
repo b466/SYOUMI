@@ -11,15 +11,27 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require jquery
+//= require bxslider
 //= require activestorage
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
-//= require jquery
 //= require moment
 //= require fullcalendar
 //= require fullcalendar/lang/ja
 
- $(() => {
+$(() => {
   $('#calendar').fullCalendar({});
 })
+
+
+$(document).on('turbolinks:load', function() {
+  $('.bxslider').bxSlider({
+    auto: true,
+    autoControls: true,
+    stopAutoOnClick: true,
+    pager: true,
+    slideWidth: 600
+  });
+});

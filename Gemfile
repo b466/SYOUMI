@@ -75,8 +75,8 @@ gem 'pry-byebug'
 gem 'payjp'
 gem 'dotenv-rails'
 
-gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
 
+gem 'bxslider-rails'

@@ -1,2 +1,77 @@
-<h1>Homes#top</h1>
-<p>Find me in app/views/homes/top.html.erb</p>
+
+
+
+
+<div class="container">
+  <div class="jumbotron mt-4">
+    <h1 class="display-4">
+      <svg viewbox="0 0 100 20">
+        <defs>
+          <linearGradient id="gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="5%" stop-color="#326384"/>
+            <stop offset="95%" stop-color="#123752"/>
+          </linearGradient>
+          <pattern id="wave" x="0" y="0" width="120" height="20" patternUnits="userSpaceOnUse">
+            <path id="wavePath" d="M-40 9 Q-30 7 -20 9 T0 9 T20 9 T40 9 T60 9 T80 9 T100 9 T120 9 V20 H-40z" mask="url(#mask)" fill="url(#gradient)"> 
+              <animateTransform
+              attributeName="transform"
+              begin="0s"
+              dur="1.5s"
+              type="translate"
+              from="0,0"
+              to="40,0"
+              repeatCount="indefinite" />
+            </path>
+          </pattern>
+        </defs>
+        <text class="jumbotron" text-anchor="middle" x="50" y="15" font-size="17" fill="url(#wave)"  fill-opacity="0.6">SYOYMI</text>
+        <text class="jumbotron" text-anchor="middle" x="50" y="15" font-size="17" fill="url(#gradient)" fill-opacity="0.1">SYOUMI</text>
+      </svg>
+    </h1>
+    <p class="lead">余ってしまった料理を販売してフードロス削減</p>
+    <hr class="my-4">
+    <p>テイクアウトでお手軽に美味しい食事ができる！</p>
+  </div><!-- /.jumbotron -->
+</div><!-- /.container -->
+
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="card img-thumbnail">
+      <img class="card-img-top" src="/assets/1949440m.jpg" alt="">
+      <div class="card-body px-2 py-3">
+        <h5 class="card-title">フードロス発生</h5>
+        <p class="card-text">閉店時間や賞味期限、天気や周辺の行事の影響などから余剰が発生してしまいました。余った食材の多くは、まだ食べられるのに捨てられてしまっています。 </p>
+
+      </div><!-- /.card-body -->
+    </div><!-- /.card -->
+  </div><!-- /.col-sm-6.col-md-3 -->
+
+
+
+
+  <div class="col-sm-6 col-md-4">
+    <div class="card img-thumbnail">
+      <img class="card-img-top" src="/assets/1015047m.jpg" alt="">
+      <div class="card-body px-2 py-3">
+        <h5 class="card-title">SYOUMIに登録</h5>
+        <p class="card-text">お問い合わせをして頂いて、お店、料理を登録して頂きます。</p>
+       
+
+      </div><!-- /.card-body -->
+    </div><!-- /.card -->
+  </div><!-- /.col-sm-6.col-md-3 -->
+
+
+
+  <div class="col-sm-6 col-md-4">
+    <div class="card img-thumbnail">
+      <img class="card-img-top" src="/assets/1963475m.jpg" alt="">
+      <div class="card-body px-2 py-3">
+        <h5 class="card-title">受け渡し</h5>
+        <p class="card-text">料金はクレジット決済されるので、ご来店されましたら購入画面をご提示頂き、引き渡しになります。</p>
+
+      </div><!-- /.card-body -->
+    </div><!-- /.card -->
+  </div><!-- /.col-sm-6.col-md-3 -->
+</div><!-- /.row -->
+
