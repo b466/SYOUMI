@@ -44,7 +44,9 @@
                   <div class="media">
 
                     <div class="media-content">
-                      <div class="title"><%= shop.name %></div>
+                      <div class="title"><%= link_to shop.name, shop_path(shop) %>
+                        
+                      </div>
                     </div>
                   </div>
                   <%= shop.genre_id%>
@@ -59,3 +61,4 @@
           </div>
         </div>
       </section>		
+

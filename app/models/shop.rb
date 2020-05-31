@@ -4,13 +4,12 @@ class Shop < ApplicationRecord
 	attachment :image
 	belongs_to :member
 
-	with_options presence: true do
-		validates :name
-		validates :image
-		validates :explanatory
-		validates :shop_url
-		validates :phone_number
-		validates :address
-		validates :genre
-	end
+	validates :name, :presence => {:message => '名前を入力してください'}
+	validates :image, :presence => {:message => '写真を入力してください'}
+	validates :explanatory, :presence => {:message => '店舗説明を入力してください'}
+	validates :shop_url, :presence => {:message => '店舗URLを入力してください'}	
+	validates :phone_number, :presence => {:message => '電話番号を入力してください'}
+	validates :address, :presence => {:message => '住所を入力してください'}
+
+
 end

@@ -1,13 +1,13 @@
-<% if @shop.errors.any? %>
-  <div class="notification is-danger">
-    <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this object from being saved: not successfully</h2>
-    <ul>
-      <% @shop.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+    <% if @shop.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <strong>入力内容にエラーがあります</strong>
+      <ul>
+        <% @shop.errors.each do |attr, msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
 
 
 
@@ -16,7 +16,7 @@
   <div class="col-xs-10">
     <h1>店舗新規登録</h1>
 
-    <%= form_with model: @shop, url:  shops_path, local: true do |f| %>
+    <%= form_with model: @shop, url: shops_path, local: true do |f| %>
     <div>
       <%= f.label :店舗画像 %>
    <%= f.attachment_field :image %>
