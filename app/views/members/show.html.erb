@@ -42,7 +42,7 @@
 		<div class="title"><%= shop.name %></div>
 		<%= link_to "店舗編集", edit_shop_path(shop), class: "btn btn-success" %>
 		<%= link_to "料理を登録", new_shop_product_path(shop), class: "btn btn-success" %>
-		<%= link_to "料理を編集", edit_shop_product_path(shop), class: "btn btn-success" %>
+		<%= link_to "料理の一覧", shop_products_path(shop), class: "btn btn-success" %>
 		<% end %>
 	</div>
 

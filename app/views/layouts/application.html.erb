@@ -39,10 +39,11 @@
               <li><%= link_to 'マイページ', member_path(current_member.id), class: "fas fa-male faa-tada animated animated button is-warning is-outlined" %></li>
               <li><%= link_to "お問い合わせ", inquiry_path, class: "fas fa-id-card faa-vertical animated button is-warning is-outlined" %></li>
               <li><%= link_to "ホーム", root_path, class: "fas fa-crown faa-spin animated button is-warning is-outlined" %></li>
-            </ul>
-            <% elsif admin_signed_in? %>
+                              <% if admin_signed_in? %>
             <li>管理者</li>
             <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "fas fa-sign-out-alt faa-wrench animated button is-warning is-outlined" %></li>
+            <% end %>
+            </ul>
           </div>
         </div>
       </div>
@@ -54,6 +55,8 @@
       <li><%= link_to "ログイン", new_member_session_path, class: "fas fa-crown faa-spin animated button is-warning is-outlined" %></li>
     </div>
       <% end %>
+
+
 
       
     </div>

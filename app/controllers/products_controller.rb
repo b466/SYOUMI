@@ -29,7 +29,7 @@ class ProductsController < ApplicationController
   end
 
     def edit
-    @product = product.find(params[:shop_id])
+    @product = Product.find(params[:id])
   end
 
   def update

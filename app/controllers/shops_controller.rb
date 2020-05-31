@@ -6,9 +6,9 @@ class ShopsController < ApplicationController
   end
 
   def create
-  	shop = Shop.new(shop_params)
-    shop.member_id = current_member.id
-    if shop.save
+  	@shop = Shop.new(shop_params)
+    @shop.member_id = current_member.id
+    if @shop.save
       redirect_to shops_path
     else
       render :new
