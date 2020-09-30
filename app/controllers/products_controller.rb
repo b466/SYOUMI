@@ -30,12 +30,14 @@ class ProductsController < ApplicationController
 
     def edit
     @product = Product.find(params[:id])
+    @shop = @product.shop
   end
 
   def update
     product = Product.find(params[:id])
     product.update(product_params)
-    redirect_to  admin_products_path(product)
+    shop = product.shop
+    redirect_to  shop_product_path(shop,product)
   end
 
   def destroy

@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   resources :members, only: [:show, :edit, :update, :index] 
   resources :genres, only: [:new, :create, :index, :edit, :update, :destroy]
   resources :shops do
-  resources :products
+    resources :products, only: [:index, :show, :edit, :update, :destroy]
   end  
   resources :orders, only: [:new, :create, :index, :show]
   resources :order_products, only: [:index, :show]

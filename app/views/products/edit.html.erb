@@ -1,10 +1,11 @@
 <div class="row">
 	<div class="col-xs-1"></div>
 	<div class="col-xs-10">
-		<h1>商品新規登録</h1>
+		<h1>商品編集登録</h1>
 
-		<%= form_with model: @product, url:  shop_products_path, local: true do |f| %>
+		<%= form_with model: [@shop, @product], local: true do |f| %>
 		<div>
+			
 			<%= f.label :商品画像 %>
 			<%= f.attachment_field :image %>
 		</div>
@@ -17,7 +18,7 @@
 
 		<div>
 			<%= f.label :商品説明 %>
-			<%= f.text_area :introduction,  class: "form-control"  %>
+			<%= f.text_area :explanatory,  class: "form-control"  %>
 		</div>
 
 		<div>

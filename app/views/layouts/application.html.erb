@@ -34,11 +34,11 @@
                 ようこそ <%= current_member.first_name + current_member.last_name %> さん 
               </div></li>
 
-              <li><%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: "fas fa-sign-out-alt faa-wrench animated button is-warning is-outlined" %></li>
-              <li><%= link_to "店舗一覧", shops_path, class: "fas fa-store-alt faa-bounce animated button is-warning is-outlined" %></li>
-              <li><%= link_to 'マイページ', member_path(current_member.id), class: "fas fa-male faa-tada animated animated button is-warning is-outlined" %></li>
-              <li><%= link_to "お問い合わせ", inquiry_path, class: "fas fa-id-card faa-vertical animated button is-warning is-outlined" %></li>
-              <li><%= link_to "ホーム", root_path, class: "fas fa-crown faa-spin animated button is-warning is-outlined" %></li>
+              <li><%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: "fas fa-sign-out-alt animated button is-warning is-outlined" %></li>
+              <li><%= link_to "店舗一覧", shops_path, class: "fas fa-store-alt animated button is-warning is-outlined" %></li>
+              <li><%= link_to 'マイページ', member_path(current_member.id), class: "fas fa-male animated animated button is-warning is-outlined" %></li>
+              <li><%= link_to "お問い合わせ", inquiry_path, class: "fas fa-id-card animated button is-warning is-outlined" %></li>
+              <li><%= link_to "ホーム", root_path, class: "fas fa-crown animated button is-warning is-outlined" %></li>
                               <% if admin_signed_in? %>
             <li>管理者</li>
             <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "fas fa-sign-out-alt faa-wrench animated button is-warning is-outlined" %></li>
@@ -51,8 +51,8 @@
       
       <% else %>
       <div class="navbar-item">
-      <li><%= link_to "新規登録", new_member_registration_path, class: "fas fa-sign-out-alt faa-wrench animated button is-warning is-outlined" %></li>
-      <li><%= link_to "ログイン", new_member_session_path, class: "fas fa-crown faa-spin animated button is-warning is-outlined" %></li>
+      <li><%= link_to "新規登録", new_member_registration_path, class: "fas fa-sign-out-alt animated button is-warning is-outlined" %></li>
+      <li><%= link_to "ログイン", new_member_session_path, class: "fas fa-crown animated button is-warning is-outlined" %></li>
     </div>
       <% end %>
 
